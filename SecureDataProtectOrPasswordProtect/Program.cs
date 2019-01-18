@@ -14,7 +14,7 @@ namespace SecureDataProtectOrPasswordProtect
             Console.BackgroundColor = ConsoleColor.DarkRed;
             SecureDataProtected aDataProtected = new SecureDataProtected();
             Console.WriteLine("Protected Data-" + aDataProtected.Protect(password));
-            Console.BackgroundColor = ConsoleColor.Black;
+            Console.BackgroundColor = ConsoleColor.Cyan;
 
             string original = aDataProtected.Unprotect(ConfigurationManager.AppSettings["password"]);
             Console.WriteLine("Unprotected Data-" + original);
