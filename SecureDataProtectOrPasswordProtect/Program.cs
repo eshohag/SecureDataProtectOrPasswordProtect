@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Configuration;
 
 namespace SecureDataProtectOrPasswordProtect
 {
@@ -10,6 +7,19 @@ namespace SecureDataProtectOrPasswordProtect
     {
         static void Main(string[] args)
         {
+
+            string password = "123456";
+            Console.WriteLine("Real Password-" + password);
+
+            Console.BackgroundColor = ConsoleColor.DarkRed;
+            SecureDataProtected aDataProtected = new SecureDataProtected();
+            Console.WriteLine("Protected Data-" + aDataProtected.Protect(password));
+            Console.BackgroundColor = ConsoleColor.Black;
+
+            string original = aDataProtected.Unprotect(ConfigurationManager.AppSettings["password"]);
+            Console.WriteLine("Unprotected Data-" + original);
+
+            Console.ReadLine();
         }
     }
 }
